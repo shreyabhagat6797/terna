@@ -1,0 +1,68 @@
+'''
+Write a program to display "Hello" if a number entered by user is a multiple of five , 
+otherwise print "Bye"
+
+'''
+'''num=int(input("enter number: "))
+if num%5==0:
+    print("hello")
+else:
+    print("bye")'''
+
+
+'''
+Accept three sides of a triangle and check whether it is an equilateral, isosceles or scalene triangle.
+Note :
+An equilateral triangle is a triangle in which all three sides are equal.
+A scalene triangle is a triangle that has three unequal sides.
+An isosceles triangle is a triangle with (at least) two equal sides.
+'''
+
+'''
+x=int(input("x="))
+y=int(input("y="))
+z=int(input("z="))
+if x==y and y==z and x==z:  #x==y==z
+    print("equilateral")
+elif x==y or y==z or x==z:
+    print("isosceles")
+else:
+    print("scalene")
+'''
+
+
+'''
+Write a program to print the following using while loop first 10 odd numbers
+'''
+
+'''i=1
+while(i<=20):
+    print(i)
+    i+=2'''
+
+'''print("====The First 10 Odd Natural Numbers====")
+i = 1
+
+while(i <= 10):
+    print(2 * i - 1)
+    i = i + 1'''
+
+
+'''
+Write a program to check whether a number is prime or not using while loop.
+'''
+
+num=int(input("enter the number: "))
+k=0
+if num==0 or num==1:
+    print("not prime")
+else:
+    i=2
+    while(i<num):
+        if num%i==0:
+            k=k+1
+        i+=1
+if k==0:
+    print(num," is prime")
+else:
+    print("not prime")
