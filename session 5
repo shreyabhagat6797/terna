@@ -1,0 +1,138 @@
+'''Write a Python program to count the number of even and odd numbers from a series of numbers. 
+	Sample numbers : numbers = (1, 2, 3, 4, 5, 6, 7, 8, 9) 
+	Expected Output :
+	Number of even numbers : 4
+	Number of odd numbers : 5
+	
+'''
+
+list1=[1,2,3,4,5,6,7,8,9]
+even=0
+odd=0
+for i in list1:
+    if i%2==0:
+        even+=1
+    else:
+        odd+=1
+
+print(f'There are {even} Even and {odd} Odd numbers')
+
+
+#
+n=int(input("enter the start of series"))
+n1=int(input("enter the end of seres"))
+even=0
+odd=0
+for i in range(n,(n1+1)):
+    if i%2==0:
+        even+=1
+    else:
+        odd+=1
+
+print(f'There are {even} Even and {odd} Odd numbers')
+
+
+'''Write a Python program that accepts a string and calculate the number of digits and letters. 
+Sample Data : Python 3.2
+Expected Output :
+Letters 6
+Digits 2'''   
+
+string1="Python 3.2"
+letter_count=0
+digit_count=0
+s_count=0
+
+for i in range(0,len(string1)):
+    if string1[i].isdigit():
+        digit_count+=1
+    elif string1[i].isalpha():
+        letter_count+=1
+    elif string1[i]==" ":
+        pass
+
+print(f"letter count: {letter_count} \n digit count: {digit_count} \n s_count: {s_count}")
+
+
+#functions
+
+'''A function in Python is an aggregation of related statements designed to perform a computational, logical, or evaluative task.
+	Functions can be both built-in or user-defined. '''
+#syntax
+def function_name(parameters):
+     """docstring"""
+     statements
+     return expression
+
+
+def func():
+    print("welcome to python")
+func()
+
+
+
+def evenOdd(x):
+    if x%2==0:
+        print("even")
+    else:
+        print("odd")
+
+evenOdd(2)
+evenOdd(3)
+
+
+#return statement
+def square_value(num):
+    return num**2
+
+print(square_value(2))
+print(square_value(-4))
+
+
+#docstring
+
+def evenOdd(x):
+    """Function to check even or odd"""
+    if x%2==0:
+        print("even")
+    else:
+        print("odd")
+
+evenOdd(2)
+evenOdd(3)
+print(evenOdd.__doc__)
+
+
+#
+
+def swap(x,y):
+    temp=x
+    x=y
+    y=temp
+    return (x,y)
+
+print(swap(4,5))
+
+
+#pass by reference or pass by value
+
+'''when we pass reference & change the received reference to something else, 
+then the connection between ths passed & received parameter is broken'''
+
+def myfunc(x):
+    x[0]=20
+    #x=[20,30,40]
+
+lst=[10,11,12,13,14,15]
+myfunc(lst)
+print(lst)
+
+#
+def myfunc(x):
+    x[0]=20
+
+x=[30]
+myfunc(x)
+print(x)
+
+
