@@ -1,31 +1,39 @@
 #*args   Non-keyword arguments
+'''
+•	The special syntax *args in function definitions in python is used to pass a variable number of arguments to a function.'''
 
-'''def myfunc(*argv):
+def myfunc(*argv):
     for i in argv:
         print(i)
 
-myfunc("hello","welcome","to","python")'''
+myfunc("hello","welcome","to","python")
 
 
 # **kwargs    keyword arguments
+'''
+•	The special syntax **kwargs in function definitions in python is used to pass a keyworded, variable-length argument list. We use the name kwargs with the double star. 
+'''
 
-'''def myfunc(**kwargs):
+def myfunc(**kwargs):
     for key,value in kwargs.items():
         print("%s==%s"%(key,value))
 
-myfunc(first="hello",second="to",third="python")'''
+myfunc(first="hello",second="to",third="python")
 
 
 #keyword argument with extra argument
-'''def myfunc(arg1,**kwargs):
+def myfunc(arg1,**kwargs):
     for key,value in kwargs.items():
         print("%s==%s"%(key,value))
     print(arg1)
 
-myfunc("hi",first="hello",second="to",third="python")'''
+myfunc("hi",first="hello",second="to",third="python")
 
+'''
+using *args & **kwargs in same function
+'''
 
-'''def myfunc(arg1,arg2,arg3):
+def myfunc(arg1,arg2,arg3):
     print(arg1)
     print(arg2)
     print(arg3)
@@ -33,13 +41,17 @@ myfunc("hi",first="hello",second="to",third="python")'''
 args=("hello","to","python")
 myfunc(*args)
 kwargs={"arg1":"java","arg2":"c","arg3":"c++"}
-myfunc(**kwargs)'''
+myfunc(**kwargs)
 
-'''def myfunc(*args,**kwargs):
+
+'''
+using *args & **kwargs to call function
+'''
+def myfunc(*args,**kwargs):
     print("args: ",args)
     print("kwargs: ",kwargs)
 
-myfunc("hello","to","python",first="hello",second="to",third="python")'''
+myfunc("hello","to","python",first="hello",second="to",third="python")
 
 
 #Anonymous function or lambda 
