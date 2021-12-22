@@ -15,7 +15,7 @@ Sample Input	Expected Output
 '''
 
 
-'''def find_product(num1,num2,num3):
+def find_product(num1,num2,num3):
     list1=[]
     list1.extend([num1,num2,num3])
     product=1
@@ -30,7 +30,7 @@ Sample Input	Expected Output
     return product
 
 product=find_product(2,7,6)
-print(product)'''
+print(product)
 
 
 
@@ -72,13 +72,14 @@ shared_letters("house", "villa") ➞ ""
 
 '''
 
-'''def shared_letters(n1,n2):
+def shared_letters(n1,n2):
     val=[]
     for i in n1.lower():
         if i in n2.lower():
             val+=i
-    val.sort()
-    val="".join(val)
+    #val.sort()
+    #val="".join(val)
+    val="".join(sorted(set(val)))   
     return val
 
-print(shared_letters("house", "home"))'''
+print(shared_letters("house", "home"))
