@@ -1,0 +1,137 @@
+'''
+You have x no. of 5 rupee coins and y no. of 1 rupee coins. You want to purchase an item for amount z. 
+The shopkeeper wants you to provide exact change. You want to pay using minimum number of coins. 
+How many 5 rupee coins and 1 rupee coins will you use? If exact change is not possible then display -1.
+
+Sample Input	                                                                 Expected Output
+Available Rs. 1 coins	Available Rs. 5 notes	Amount to be made	    Rs. 1 coins needed	Rs. 5 notes needed
+2	                            4	                   21	                  1	               4
+11	                            2                  	   11	                  1	               2
+3	                            3	                   19	                        -1
+
+
+'''
+
+def make_amount(rupees_to_make,no_of_five,no_of_one):
+    five_needed=0
+    one_needed=0
+    five_needed=int(rupees_to_make/5)
+    one_needed=rupees_to_make%5
+    if five_needed<=no_of_five and one_needed<=no_of_one:
+        print("no. of five needed: ",five_needed)
+        print("no. of one needed: ",one_needed)
+    elif five_needed>no_of_five:
+        total=no_of_five*5
+        one_needed=rupees_to_make-total
+        if one_needed<=no_of_one:
+            print("No. of five needed: ",no_of_five)
+            print("No. of one needed: ",one_needed)
+        else:
+            print("-1")
+    else:
+        print("-1")
+
+make_amount(21,4,2)
+print()
+make_amount(11,2,11)
+print()
+make_amount(19,3,3)
+print()
+make_amount(22,0,23)
+
+
+
+'''
+FoodCorner home delivers vegetarian and non-vegetarian combos to its customer based on order.
+A vegetarian combo costs Rs.120 per plate and a non-vegetarian combo costs Rs.150 per plate. 
+Their non-veg combo is really famous that they get more orders for their non-vegetarian combo than the vegetarian combo.
+
+Apart from the cost per plate of food, 
+customers are also charged for home delivery based on the distance in kms from the restaurant to the delivery point. 
+The delivery charges are as mentioned below:
+
+Distance in kms	          Delivery charge in Rs per km
+For first 3kms	               0
+For next 3kms	               3
+For the remaining	           6
+
+Given the type of food, 
+quantity (no. of plates) and the distance in kms from the restaurant to the delivery point, 
+write a python program to calculate the final bill amount to be paid by a customer. 
+
+The below information must be used to check the validity of the data provided by the customer: 
+Type of food must be ‘V’ for vegetarian and ‘N’ for non-vegetarian.
+Distance in kms must be greater than 0.
+Quantity ordered should be minimum 1.
+If any of the input is invalid, the bill amount should be considered as -1.
+
+'''
+
+
+def bill(food_type,quantity,distance_in_kms):
+    if quantity>=1 and distance_in_kms>0:
+        delivery_cost=0
+        bill_amount=0
+        dist=[(3,0),(6,3),(7,6)]
+        if food_type=='V':
+            food_cost=quantity*120
+        elif food_type=="N":
+            food_cost=quantity*150
+        else:
+            return -1
+        dist_covered=0
+        while dist_covered<=distance_in_kms:
+            for distance in dist:
+                if dist_covered<=distance[0]:
+                    value=distance[1]
+                    break
+            delivery_cost=delivery_cost+value
+            dist_covered=dist_covered+1
+        bill_amount=food_cost+delivery_cost
+        return bill_amount
+    else:
+        return -1
+
+bill_amount=bill("N",2,7)
+print(bill_amount)
+
+
+
+
+
+
+
+#2
+
+food_type = input("Enter type 'V' or 'N': ")
+quantity = int(input("Enter quantity: "))
+distance = float(input("Enter distance: "))
+
+total_bill = 0
+
+if ((food_type not in 'VvNn') or (quantity < 1) or (distance < 0)):
+	print("Bill Amount: -1")
+elif (food_type in 'vV'):
+	food_amount = 120 * quantity
+	if (distance <= 3):
+		delivery = 0
+		total_bill = food_amount + delivery
+	elif (distance <= 6):
+		delivery = (distance - 3) * 3
+		total_bill = food_amount + delivery
+	else:
+		delivery = 3 * 3 + (distance - 6) * 6
+		total_bill = food_amount + delivery
+elif (food_type in 'nN'):
+	food_amount = 150 * quantity
+	if (distance <= 3):
+		delivery = 0
+		total_bill = food_amount + delivery
+	elif (distance <= 6):
+		delivery = (distance - 3) * 3
+		total_bill = food_amount + delivery
+	else:
+		delivery = 3 * 3 + (distance - 6) * 6
+		total_bill = food_amount + delivery
+
+print(total_bill)
