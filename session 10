@@ -1,0 +1,98 @@
+'''
+Write a Python program to generate the next 15 leap years starting from a given year. 
+Populate the leap years into a list and display the list
+
+'''
+
+'''def leap_year(given_year):
+    list_of_leap=[]
+    while len(list_of_leap)!=15:
+        if given_year%4==0:
+            if given_year%100==0:
+                if given_year%400==0:
+                    list_of_leap.append(given_year)
+            else:
+                list_of_leap.append(given_year)
+        given_year=given_year+1
+    return list_of_leap
+
+list_of_leap=leap_year(2000)
+print(list_of_leap)'''
+
+
+
+'''
+ARS Gems Store sells different varieties of gems to its customers.
+
+Write a Python program to calculate the bill amount to be paid by a customer based on the list of gems and quantity purchased. 
+Any purchase with a total bill amount above Rs.30000 is entitled for 5% discount. 
+If any gem required by the customer is not available in the store, then consider total bill amount to be -1.
+
+Assume that quantity required by the customer for any gem will always be greater than 0.
+
+Perform case-sensitive comparison wherever applicable.
+'''
+
+'''def bill(gems_list,price_list,req_gems,req_quantity):
+    bill_amount=0
+    for gems in req_gems:
+        if gems in gems_list:
+            i1=gems_list.index(gems) 
+            i2=req_gems.index(gems)
+            bill_amount=bill_amount+(price_list[i1]*req_quantity[i2])
+            if bill_amount>=30000:
+                bill_amount=bill_amount*0.95
+        else:
+            return -1
+    return bill_amount
+
+gems_list=["Emerald","Ivory","Jasper","Ruby","Garnet"]
+price_list=[1760,2119,1599,3920,3999]
+req_gems=["Emerald","Ivory","opl"]
+req_quantity=[4,5]
+
+bill_amount=bill(gems_list,price_list,req_gems,req_quantity)
+print(bill_amount)'''
+
+
+
+'''
+Write a function that takes a list of hours and returns the total weekly salary.
+•	The input list hours is listed sequentially, ordered from Monday to Sunday.
+•	A worker earns $10 an hour for the first 8 hours.
+•	For every overtime hour, he earns $15.
+•	On weekends, the employer pays double the usual rate, 
+regardless how many hours were worked previously that week. 
+For instance, 10 hours worked on a weekday would pay 80+30 = $110, but on a weekend it would pay 160+60 = $220.
+
+Examples
+weekly_salary([8, 8, 8, 8, 8, 0, 0]) ➞ 400
+
+weekly_salary([10, 10, 10, 0, 8, 0, 0]) ➞ 410
+
+'''
+
+
+def weekly(list1):
+    result=0
+    for l in list1[:5]:
+        if 0<l<=8:
+            result=result+l*10
+        elif l>8:
+            result=result+8*10+(l-8)*15
+    for l in list1[5:]:
+        if 0<l<=8:
+            result=result+l*20
+        elif l>8:
+            result=result+8*20+(l-8)*30
+    return result
+
+print(weekly([10, 10, 10, 0, 8, 0, 0]))
+
+
+
+
+def weekly(list1):
+    return sum((1+(i>4))*(10*h+5*max(h-8,0))for i,h in enumerate(list1))
+
+print(weekly([10, 10, 10, 0, 8, 0, 0]))
